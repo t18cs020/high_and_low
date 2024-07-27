@@ -1,0 +1,22 @@
+.cards{
+    text-align:center;
+}
+
+.sentence{
+    text-align:center;
+}
+
+.before_card{
+    /* display:block; */
+    margin-right: 40px;
+}
+
+.after_card{
+    /* display:block; */
+    margin-left: 40px;
+}
+
+.dealer{
+    text-align:center;
+}
+

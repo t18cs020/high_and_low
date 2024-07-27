@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High and Low Game</title>
+<style>
+  .win { background: red; }
+  .lose { background: blue; }
+</style>
+<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+<br>
+<div class="dealer">
+  <img id="dealer_image" class="dealer_image" src="images/dealer_crown.jpg" width="200" height="300">
+</div>
+<!-- ゲームの内容 -->
+ <div class="cards">
+     <img id="Card_img_Before" class="before_card" src="images/1.png" width="200" height="300">
+     <img id="Card_img_After" class="after_card" src="images/0.png" width="200" height="300">
+ </div>
+
+ <div class="sentence">
+  <p id="Before">場にあるカードは１</p>
+  <p id="After">次のカードは場にあるカードより高いか低いか考えてみよう！</p>
+  
+  <input type="button" value="High" onclick="High_Low(1);">
+  <input type="button" value="Low" onclick="High_Low(0);">
+ </div>
+
+<script src="main.js"></script>
+</body>
+</html>
