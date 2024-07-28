@@ -1,6 +1,8 @@
 let card = 1; // 場にあるトランプのカード番号
 //ディーラー名を保持する変数
 let dealer = "crown";
+let count = 0;
+let winCount =0;
 
 function viewDealer() {
   document.getElementById("dealer_image").src = `images/dealer_${dealer}.jpg`
@@ -15,7 +17,7 @@ function changeDealer() {
 
 function High_Low(Hi_L) {
   let Result = ""; // 勝ち負けの結果を初期化
-
+  count = count + 1;
   // 表示前のカードを設定
   document.getElementById("Card_img_Before").src = `images/${card}.png`;
 
@@ -29,11 +31,13 @@ function High_Low(Hi_L) {
       (Result = "　LOWを選んで、あなたの<span class='lose'>『 負け 』</span>",
         document.getElementById("dealer_image").src = `images/win_${dealer}.jpg`) :
       (Result = "　HIGHを選んで、あなたの<span class='win'>【 勝ち 】</span>",
-        document.getElementById("dealer_image").src = `images/lose_${dealer}.jpg`);
+        document.getElementById("dealer_image").src = `images/lose_${dealer}.jpg`,
+        winCount = winCount + 1);
   } else if (card > trump[trump_n]) {
     Hi_L === 0 ?
       (Result = "　LOWを選んで、あなたの<span class='win'>【 勝ち 】</span>",
-        document.getElementById("dealer_image").src = `images/lose_${dealer}.jpg`) :
+        document.getElementById("dealer_image").src = `images/lose_${dealer}.jpg`,
+        winCount = winCount + 1) :
       (Result = "　HIGHを選んで、あなたの<span class='lose'>『 負け 』</span>",
         document.getElementById("dealer_image").src = `images/win_${dealer}.jpg`);
   } else {
@@ -47,6 +51,7 @@ function High_Low(Hi_L) {
   // 結果を表示
   document.getElementById("After").innerHTML = `伏せカードは${trump[trump_n]} ${Result}<br />次のカードが今の数字より高いか低いか考えてみよう！`;
   document.getElementById("Before").innerHTML = `場にあるカードは${card}`;
+  document.getElementById("winningRate").innerHTML = `あなたの勝率は${((winCount/count)*100).toPrecision(4)}%です`;
 
   // 場にあるカードを更新
   card = trump[trump_n];
